@@ -20,7 +20,7 @@ const Home: React.FC = () => {
     useEffect(() => {
         const fetchData = async () => {
           try {
-            const response = await axios.get("https://67e671d16530dbd31110075c.mockapi.io/api/home");
+            const response = await axios.get(API_Home);
       
             const mappedData = response.data.img.map((url: string, index: number) => ({
               id: index.toString(),
