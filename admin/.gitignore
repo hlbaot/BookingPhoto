@@ -13,7 +13,7 @@ dist-ssr
 *.local
 
 # Bỏ qua file .env để tránh lộ API key
-# .env
+.env
 
 # Editor directories and files
 .vscode/*
