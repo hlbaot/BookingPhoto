@@ -28,135 +28,107 @@ const Explore: React.FC<ExploreProps> = () => {
   }, []);
 
   return (
-    <section className="w-full h-[100vh]">
+    <section className="explore-container">
       <div className="explore">
         <div className="left">
-          <div className="text_head w-full h-auto">
-            <h1
-              className="text-center text-black font-script text-[50px] font-bold"
-              data-aos="fade-down"
-            >
+          <div className="text_head">
+            <h1 className="text-center text-black font-script text-[50px] font-bold" data-aos="fade-down">
               Explore
             </h1>
           </div>
-          <div className="rounded-[20px] bg-gray-100 shadow-[0px_4px_10px_rgba(0,0,0,0.3)] p-[1rem] mt-[2rem]">
-            <h1 className="text-black text-2xl font-bold text-center">
-              Nơi lưu giữ khoảnh khắc trọn vẹn!
-            </h1>
-            <div className="text-center">
+          <div className="info-card">
+            <h1 className="title">Nơi lưu giữ khoảnh khắc trọn vẹn!</h1>
+            <div className="description">
               {texts.map((text, index) => (
-                <p
-                  key={index}
-                  className="text-l font-bold italic text-black"
-                  data-aos="fade-right"
-                >
+                <p key={index} className="text" data-aos="fade-right">
                   {text}
                 </p>
               ))}
             </div>
-            <h4 className="text-center font-semibold text-black text-[20px]">
-              Hãy để BT Studio giúp bạn lưu giữ những khoảnh khắc quý giá nhất!
-            </h4>
+            <h4 className="footer">Hãy để BT Studio giúp bạn lưu giữ những khoảnh khắc quý giá nhất!</h4>
           </div>
         </div>
 
-        <div className="right">
+        <div className="right relative">
           <StyledWrapper>
-            <div className="stack">
-              <div className="card">
-                <div
-                  className="image"
-                  style={{
-                    backgroundImage: `url(${images[currentImageIndex]})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                  }}
-                />
+            <div className="w-[400px] h-[auto] absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 flex justufy-center align-center">
+              <div className="stack">
+                <div className="card">
+                  <div
+                    className="image"
+                    style={{
+                      backgroundImage: `url(${images[currentImageIndex]})`,
+                    }}
+                  />
+                </div>
               </div>
             </div>
           </StyledWrapper>
         </div>
+
       </div>
     </section>
   );
 };
 
 const StyledWrapper = styled.div`
-  img {
-    display: block;
-    max-width: 100%;
-  }
-
   .stack {
-    width: 380px;
-    max-width: 400px;
+    width: 100%;
     transition: 0.25s ease;
+    aspect-ratio: 1 / 1;
 
     &:hover {
       transform: rotate(5deg);
 
       .card:before {
-        transform: translatey(-2%) rotate(-4deg);
+        transform: translateY(-2%) rotate(-4deg);
       }
 
       .card:after {
-        transform: translatey(2%) rotate(4deg);
+        transform: translateY(2%) rotate(4deg);
       }
     }
   }
 
   .card {
-    aspect-ratio: 3 / 2;
-    border: 4px solid;
-    background-color: #fff;
     position: relative;
+    border: 4px solid #000;
+    background-color: #fff;
+    height: 100%;
+    width: 100%;
     transition: 0.15s ease;
     cursor: pointer;
-    padding: 5% 5% 15% 5%;
 
     &:before,
     &:after {
-      content: "";
+      content: '';
       display: block;
       position: absolute;
       height: 100%;
       width: 100%;
-      border: 4px solid;
+      border: 4px solid #000;
       background-color: #fff;
-      transform-origin: center center;
       z-index: -1;
-      transition: 0.15s ease;
       top: 0;
       left: 0;
+      transform-origin: center;
+      transition: 0.15s ease;
     }
 
     &:before {
-      transform: translatey(-2%) rotate(-6deg);
+      transform: translateY(-2%) rotate(-6deg);
     }
 
     &:after {
-      transform: translatey(2%) rotate(6deg);
+      transform: translateY(2%) rotate(6deg);
     }
   }
 
   .image {
     width: 100%;
-    aspect-ratio: 1 / 1;
-    background-color: #eee;
+    height: 100%;
     background-size: cover;
     background-position: center;
-    border: 4px solid;
-    position: relative;
-  }
-
-  .browser-warning {
-    margin-bottom: 4rem;
-  }
-
-  @supports (aspect-ratio: 1 / 1) {
-    .browser-warning {
-      display: none;
-    }
   }
 `;
 

@@ -1,83 +1,85 @@
+.explore-container {
+  width: 100%;
+  height: 100vh;
+}
+
 .explore {
-    width: 100%;
-    height: 100%;
+  display: flex;
+  height: 100%;
+  width: 100%;
+
+  .left {
+    width: 65%;
     display: flex;
-  
-    .left {
-      width: 65%;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      padding: 3rem;
-    }
-  
-    .right {
-      width: 35%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-  
-      .stack {
-        width: 100%;
-        max-width: 400px;
-        aspect-ratio: 1 / 1;
-        object-fit: cover;
-      }
-    }
-  
-    .explore-swiper {
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem;
+
+    .text_head {
       width: 100%;
-      height: 100%;
     }
-  
-    .swiper-slide {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-  
-    .slide-content {
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-    }
-  
-    .swiper-button-prev,
-    .swiper-button-next {
-      display: none;
-    }
-  
-    @media (max-width: 775px) {
-      flex-direction: column;
-      min-height: 100vh;
-  
-      .left {
-        width: 100%;
-        padding: 1.5rem;
-        order: 1;
+
+    .info-card {
+      margin-top: 2rem;
+      padding: 1rem;
+      border-radius: 20px;
+      background-color: #f3f4f6;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+
+      .title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+        color: #000;
       }
-  
-      .right {
-        width: 100%;
-        padding: 1rem;
-        order: 2;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-  
-        .stack {
-          width: 100%;
-          max-width: 400px;
-          aspect-ratio: 1 / 1;
-          object-fit: cover;
+
+      .description {
+        margin-top: 1rem;
+        text-align: center;
+
+        .text {
+          font-size: 1rem;
+          font-weight: bold;
+          font-style: italic;
+          color: #000;
         }
       }
-  
-      .explore-swiper {
-        height: 100%;
+
+      .footer {
+        text-align: center;
+        font-weight: 600;
+        color: #000;
+        font-size: 1.25rem;
+        margin-top: 1rem;
       }
     }
   }
-  
+
+  .right {
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .explore {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .left, .right {
+      width: 100%;
+      padding: 1rem;
+    }
+
+    .right {
+      .stack {
+        width: 200px;
+        max-width: 300px;
+        aspect-ratio: 1 / 1;
+      }
+    }
+  }
+}
