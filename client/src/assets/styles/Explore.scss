@@ -17,6 +17,13 @@
       display: flex;
       align-items: center;
       justify-content: center;
+  
+      .stack {
+        width: 100%;
+        max-width: 400px;
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+      }
     }
   
     .explore-swiper {
@@ -54,15 +61,18 @@
   
       .right {
         width: 100%;
-        display: flex;
-        justify-content: center;
         padding: 1rem;
         order: 2;
-      }
+        display: flex;
+        justify-content: center;
+        align-items: center;
   
-      .stack {
-        width: 300px;
-        max-width: 500px;
+        .stack {
+          width: 100%;
+          max-width: 400px;
+          aspect-ratio: 1 / 1;
+          object-fit: cover;
+        }
       }
   
       .explore-swiper {
