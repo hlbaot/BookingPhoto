@@ -6,7 +6,7 @@ import { useState, useEffect } from "react";
 import Carousel from "react-bootstrap/Carousel";
 import axios from "axios";
 import CustomModal from "../components/Modal";
-import API_Service from "../api/service";
+import API_Service from '../api/service';
 
 
 interface Item {

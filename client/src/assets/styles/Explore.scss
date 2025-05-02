@@ -1,68 +1,73 @@
-
 .explore {
     width: 100%;
     height: 100%;
     display: flex;
+  
     .left {
-        width: 65%;
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        padding: 3rem;
+      width: 65%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      padding: 3rem;
     }
-
+  
     .right {
-        width: 35%;
-        display: flex;
-        align-items: center;
-
-        .img {
-            width: 100%;
-            height: 100%;
-        }
+      width: 35%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
-
+  
     .explore-swiper {
-        width: 100%;
-        height: 100%;
+      width: 100%;
+      height: 100%;
     }
-
+  
     .swiper-slide {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-
+  
     .slide-content {
-        width: 100%;
-        height: 100%;
-        background-size: cover;
-        background-position: center;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
     }
-
+  
     .swiper-button-prev,
     .swiper-button-next {
-        display: none;
+      display: none;
     }
-
-    @media (max-width: 768px) {
-        flex-direction: column;
-        min-height: 100vh;
-
-        .left {
-            width: 100%;
-            padding: 1.5rem;
-            order: 2; 
-        }
-
-        .right {
-            display: none;
-        }
-
-        .explore-swiper {
-            height: 100%;
-        }
+  
+    @media (max-width: 775px) {
+      flex-direction: column;
+      min-height: 100vh;
+  
+      .left {
+        width: 100%;
+        padding: 1.5rem;
+        order: 1;
+      }
+  
+      .right {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 1rem;
+        order: 2;
+      }
+  
+      .stack {
+        width: 300px;
+        max-width: 500px;
+      }
+  
+      .explore-swiper {
+        height: 100%;
+      }
     }
-
-    
-}
+  }
+  

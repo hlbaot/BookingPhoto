@@ -12,21 +12,21 @@ const Contact: React.FC = () => {
                     <ul className="flex flex-col gap-3">
                         <li className="flex items-center gap-3">
                             <i className="fa-solid fa-phone"></i>
-                            <span>+84 123 456 789</span>
+                            <span>0348002795</span>
                         </li>
                         <li className="flex items-center gap-3">
                             <i className="fa-solid fa-envelope"></i>
-                            <span>booking@gmail.com</span>
+                            <span>baotoanit1505@gmail.com</span>
                         </li>
                         <li className="flex items-center gap-3">
                             <a
-                                href="https://www.instagram.com/duckb12/"
+                                href="https://www.instagram.com/hlbaot/"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="text-white "
                             >
                                 <i className="fa-brands fa-instagram"></i>
-                                <span>duckb12</span>
+                                <span>hlbaot</span>
                             </a>
                         </li>
 
@@ -40,7 +40,7 @@ const Contact: React.FC = () => {
                         <li className="flex items-center gap-3">
                             <a href="#" className="flex items-center gap-3">
                                 <i className="fa-solid fa-location-dot"></i>
-                                <span>123 Main Street, Hanoi, Vietnam</span>
+                                <span>Da Nang, Viet Nam</span>
                             </a>
                         </li>
                     </ul>
