@@ -3,7 +3,7 @@ import "../assets/styles/Home.scss";
 import "aos/dist/aos.css";
 import AOS from "aos";
 import axios from "axios";
-import API_Home from "../api/home"; // Giả sử API_Home là URL bạn định nghĩa trong file home.ts
+import API_Home from "../api/home"; 
 
 interface Image {
   img: string;
