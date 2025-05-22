@@ -96,7 +96,7 @@ const Service: React.FC = () => {
                   <p className="text-white text-center text-[24px] md:text-3xl font-bold tracking-wide max-w-md mx-auto">
                     {item.title}
                   </p>
-                  <p className="text-white text-center text-lg md:text-xl font-light max-w-md mx-auto">
+                  <p className="text-white text-center text-lg md:text-xl font-light max-w-sm mx-auto">
                     {item.description}
                   </p>
                   <div className="p-5 flex items-center justify-center">
@@ -105,7 +105,6 @@ const Service: React.FC = () => {
                       className="px-4 py-2 text-sm font-semibold text-black bg-white rounded-full  hover:bg-green-500 hover:text-white transform hover:translate-y-0 active:translate-y-1 focus:outline-none"
                     >
                       Xem chi tiết
-                      
                     </button>
                   </div>
                 </div>
