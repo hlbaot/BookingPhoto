@@ -17,7 +17,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Routes>
+      {/* <Routes>
         <Route
           path="/login"
           element={isLoggedIn ? <Navigate to="/admin/home" /> : <SignIn onLogin={handleLogin} />}
@@ -32,7 +32,8 @@ function App() {
           path="*"
           element={<Navigate to={isLoggedIn ? "/admin/home" : "/login"} />}
         />
-      </Routes>
+      </Routes> */}
+      <Admin/>
     </BrowserRouter>
   );
 }
