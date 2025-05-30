@@ -37,13 +37,13 @@ function ManagerService() {
             Authorization: `Bearer ${getToken()}`,
           },
         });
-  
+
         // Chuyển price từ string thành number
         const packages = response.data.packages.map((pkg: ServicePackage) => ({
           ...pkg,
           price: parseFloat(String(pkg.pricePackage)), // Chuyển price thành số
         }));
-  
+
         setData(packages); // Cập nhật state data
       } catch (error) {
         console.error('Lỗi khi lấy danh sách dịch vụ:', error);
@@ -51,7 +51,7 @@ function ManagerService() {
     };
     fetchData();
   }, []);//đến đây
-  
+
   const handleAddService = (newService: ServicePackage) => {
     setData((prevData) => [...prevData, newService]);
   };
@@ -73,7 +73,7 @@ function ManagerService() {
             headers: {
               Authorization: `Bearer ${getToken()}`,
             },
-            data: {package_id: id}
+            data: { package_id: id }
           });
 
           setData((prevData) => prevData.filter((item) => item.id !== id));
@@ -114,19 +114,19 @@ function ManagerService() {
       [name]: name === 'price' ? parseFloat(value) : value,
     }));
   };
-  
-  
+
+
 
   const handleSave = async (index: number) => {
     try {
       const { id, namePackage, pricePackage, description } = editData;
-  
+
       // Tạo payload gửi BE (chỉ gửi nếu không undefined)
       const payload: any = { id };
       if (namePackage !== undefined) payload.name = namePackage;
       if (pricePackage !== undefined) payload.price = pricePackage;
       if (description !== undefined) payload.description = description;
-      
+
       //API_UPDATE_PACKAGE
       const response = await axios.put(
         "",
@@ -137,7 +137,7 @@ function ManagerService() {
           },
         }
       );
-  
+
       if (response.status === 200) {
         const newData = [...data];
         const dataIndex = newData.findIndex((item) => item.id === editData.id);
@@ -145,7 +145,7 @@ function ManagerService() {
           newData[dataIndex] = { ...newData[dataIndex], ...payload };
           setData(newData);
         }
-  
+
         Swal.fire({
           title: 'Lưu thành công!',
           text: 'Gói dịch vụ đã được cập nhật.',
@@ -165,7 +165,7 @@ function ManagerService() {
       });
     }
   };
-  
+
 
   const handleOpenModal = (item: ServicePackage) => {
     setSelectedPackage(item);
@@ -295,7 +295,7 @@ function ManagerService() {
           data={selectedPackage}
         />
       )}
-      
+
     </div>
   );
 }
