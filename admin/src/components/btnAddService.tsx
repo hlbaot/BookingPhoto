@@ -11,6 +11,7 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { API_CreateService } from '@/api/API_mngService';
+import { ServicePackage } from '@/interfaces/servicePackage';
 import { CLOUDINARY_UPLOAD_PRESET, CLOUDINARY_UPLOAD_URL } from "@/api/API_cloudinary";
 
 const styleModal = {
@@ -31,7 +32,7 @@ const validationSchema = Yup.object({
   description: Yup.string().required('Mô tả là bắt buộc'),
 });
 
-export default function ButtonAddService({ onAddService }: { onAddService: (s: any) => void }) {
+export default function ButtonAddService({ onAddService }: { onAddService: (s: ServicePackage) => void }) {
   const [open, setOpen] = React.useState(false);
   const [previewImages, setPreviewImages] = React.useState<string[]>([]);
 

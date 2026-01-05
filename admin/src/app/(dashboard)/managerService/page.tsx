@@ -6,6 +6,7 @@ import Swal from 'sweetalert2';
 import ModalPackage from '@/components/modalPackage';
 import { toast } from "react-toastify";
 import Cookies from 'js-cookie';
+import { ServicePackage } from '@/interfaces/servicePackage';
 import {
   API_GetPackages,
   API_DeleteService,
@@ -94,7 +95,7 @@ function ManagerService() {
   const handleSave = async () => {
     try {
       if (!token) return;
-      const payload: any = {
+      const payload: ServicePackage = {
         id: editData.id,
         name: editData.name,
         price: editData.price,

@@ -1,4 +1,4 @@
-interface ServicePackage {
+export interface ServicePackage {
   id: number;
   name: string;
   price: number;

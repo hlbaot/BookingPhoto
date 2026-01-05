@@ -4,6 +4,7 @@ import '@/styles/managerClient.scss';
 import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import Cookies from 'js-cookie';
+import { ServicePackage } from '@/interfaces/servicePackage';
 import {
   API_GetBookings,
   API_GetPackages,
@@ -11,64 +12,64 @@ import {
   API_ApproveBooking
 } from '@/api/API_mngClient';
 
-const fakedb =
-  [
-    {
-      formBookingId: 1,
-      packageId: 101,
-      email: "nguyen.an@example.com",
-      bookTime: "2025-10-01T09:30:00",
-      location: "Studio A - Đà Nẵng",
-      pricePackage: 1500000,
-      packageName: "Gói Chụp Ngoại Cảnh",
-      status: true,
-      message: "Muốn chụp buổi sáng sớm.",
-    },
-    {
-      formBookingId: 2,
-      packageId: 102,
-      email: "tran.binh@example.com",
-      bookTime: "2025-10-02T14:00:00",
-      location: "Công viên 29/3, Đà Nẵng",
-      pricePackage: 2000000,
-      packageName: "Gói Chụp Studio",
-      status: false,
-      message: "Mang thêm phông nền trắng.",
-    },
-    {
-      formBookingId: 3,
-      packageId: 103,
-      email: "le.hoa@example.com",
-      bookTime: "2025-10-03T16:00:00",
-      location: "Biển Mỹ Khê",
-      pricePackage: 2500000,
-      packageName: "Gói Chụp Gia Đình",
-      status: true,
-      message: "Chụp gia đình 5 người.",
-    },
-    {
-      formBookingId: 4,
-      packageId: 104,
-      email: "pham.khanh@example.com",
-      bookTime: "2025-10-05T10:00:00",
-      location: "Trường Đại học Bách Khoa",
-      pricePackage: 5000000,
-      packageName: "Gói Chụp Kỷ Yếu",
-      status: false,
-      message: "Chụp cho lớp 20 người.",
-    },
-    {
-      formBookingId: 5,
-      packageId: 105,
-      email: "doan.mai@example.com",
-      bookTime: "2025-10-07T08:00:00",
-      location: "Hội An",
-      pricePackage: 10000000,
-      packageName: "Gói Chụp Cưới",
-      status: true,
-      message: "Chụp cả trong phố cổ và biển.",
-    },
-  ];
+// const fakedb =
+//   [
+//     {
+//       formBookingId: 1,
+//       packageId: 101,
+//       email: "nguyen.an@example.com",
+//       bookTime: "2025-10-01T09:30:00",
+//       location: "Studio A - Đà Nẵng",
+//       pricePackage: 1500000,
+//       packageName: "Gói Chụp Ngoại Cảnh",
+//       status: true,
+//       message: "Muốn chụp buổi sáng sớm.",
+//     },
+//     {
+//       formBookingId: 2,
+//       packageId: 102,
+//       email: "tran.binh@example.com",
+//       bookTime: "2025-10-02T14:00:00",
+//       location: "Công viên 29/3, Đà Nẵng",
+//       pricePackage: 2000000,
+//       packageName: "Gói Chụp Studio",
+//       status: false,
+//       message: "Mang thêm phông nền trắng.",
+//     },
+//     {
+//       formBookingId: 3,
+//       packageId: 103,
+//       email: "le.hoa@example.com",
+//       bookTime: "2025-10-03T16:00:00",
+//       location: "Biển Mỹ Khê",
+//       pricePackage: 2500000,
+//       packageName: "Gói Chụp Gia Đình",
+//       status: true,
+//       message: "Chụp gia đình 5 người.",
+//     },
+//     {
+//       formBookingId: 4,
+//       packageId: 104,
+//       email: "pham.khanh@example.com",
+//       bookTime: "2025-10-05T10:00:00",
+//       location: "Trường Đại học Bách Khoa",
+//       pricePackage: 5000000,
+//       packageName: "Gói Chụp Kỷ Yếu",
+//       status: false,
+//       message: "Chụp cho lớp 20 người.",
+//     },
+//     {
+//       formBookingId: 5,
+//       packageId: 105,
+//       email: "doan.mai@example.com",
+//       bookTime: "2025-10-07T08:00:00",
+//       location: "Hội An",
+//       pricePackage: 10000000,
+//       packageName: "Gói Chụp Cưới",
+//       status: true,
+//       message: "Chụp cả trong phố cổ và biển.",
+//     },
+//   ];
 
 const ManagerClient: React.FC = () => {
   const [data, setData] = useState<Booking[]>([]);

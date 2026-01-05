@@ -2,6 +2,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
+import { ServicePackage } from '@/interfaces/servicePackage';
 
 type ModalPackageProps = {
   open: boolean;
@@ -11,7 +12,7 @@ type ModalPackageProps = {
 
 export default function ModalPackage({ open, handleClose, data }: ModalPackageProps) {
   const style = {
-    position: 'absolute' as 'absolute',
+    position: 'absolute' ,
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',

@@ -27,7 +27,7 @@ const Signin: React.FC<SigninProps> = ({ onLogin }) => {
         const data = await API_Signin(values);
 
         if (data.token) {
-          const roles = data.roleList.map((r: any) => r.authority);
+          const roles = data.roleList.map((r) => r.authority);
           onLogin();
           if (!roles.includes("ADMIN")) {
             Swal.fire({
@@ -52,8 +52,8 @@ const Signin: React.FC<SigninProps> = ({ onLogin }) => {
 
 
 
-      } catch (err: any) {
-        const message = err.response?.data?.message || 'Sai email hoặc mật khẩu';
+      } catch (err: unknown) {
+        let message = "Sai email hoặc mật khẩu";
         if (message.toLowerCase().includes('email')) {
           setErrors({ email: message });
         } else {
