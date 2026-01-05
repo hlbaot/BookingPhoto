@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import Swal from "sweetalert2";
 import Cookies from 'js-cookie';
 import { ServicePackage } from '@/interfaces/servicePackage';
+import { Booking } from '@/interfaces/booking';
 import {
   API_GetBookings,
   API_GetPackages,
