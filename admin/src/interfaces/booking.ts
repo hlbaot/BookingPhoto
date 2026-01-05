@@ -1,5 +1,5 @@
 
-interface Booking {
+export interface Booking {
   formBookingId: number;
   packageId: number;
   email: string;

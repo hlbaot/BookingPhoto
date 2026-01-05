@@ -6,39 +6,6 @@ import { toast } from "react-toastify";
 import '@/styles/managerFeedback.scss';
 import { API_GetFeedbacks, API_DeleteFeedback } from '@/api/API_mngFeedback';
 
-const fakedb = [
-  {
-    "id": 1,
-    "email": "user1@example.com",
-    "ratingIndex": 5,
-    "content": "Dịch vụ rất tốt, tôi sẽ quay lại!"
-  },
-  {
-    "id": 2,
-    "email": "user2@example.com",
-    "ratingIndex": 4,
-    "content": "Nhân viên thân thiện, nhưng cần cải thiện tốc độ xử lý."
-  },
-  {
-    "id": 3,
-    "email": "user3@example.com",
-    "ratingIndex": 3,
-    "content": "Trải nghiệm ổn, không quá nổi bật."
-  },
-  {
-    "id": 4,
-    "email": "user4@example.com",
-    "ratingIndex": 2,
-    "content": "Chưa hài lòng, dịch vụ chậm."
-  },
-  {
-    "id": 5,
-    "email": "user5@example.com",
-    "ratingIndex": 1,
-    "content": "Rất tệ, tôi sẽ không sử dụng lại."
-  }
-]
-
 const ManagerFeedback: React.FC = () => {
   const [data, setData] = useState<Feedback[]>([]);
 

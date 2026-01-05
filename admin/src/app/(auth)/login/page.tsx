@@ -39,7 +39,7 @@ const Signin: React.FC<SigninProps> = ({ onLogin }) => {
           }
 
           Cookies.set("token", data.token);
-          
+
 
           Swal.fire({
             icon: "success",
@@ -53,13 +53,16 @@ const Signin: React.FC<SigninProps> = ({ onLogin }) => {
 
 
       } catch (err: unknown) {
-        let message = "Sai email hoặc mật khẩu";
+        const message =
+          err instanceof Error
+            ? err.message
+            : "Sai email hoặc mật khẩu";
+
         if (message.toLowerCase().includes('email')) {
           setErrors({ email: message });
         } else {
           setErrors({ password: message });
         }
-
         Swal.fire({
           icon: 'error',
           title: 'Đăng nhập thất bại',
