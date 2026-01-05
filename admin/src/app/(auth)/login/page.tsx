@@ -9,11 +9,7 @@ import { useRouter } from 'next/navigation';
 import Cookies from 'js-cookie';
 import { API_Signin } from '@/api/API_Login';
 
-interface SigninProps {
-  onLogin: () => void;
-}
-
-const Signin: React.FC<SigninProps> = ({ onLogin }) => {
+const Signin: React.FC= () => {
   const router = useRouter();
 
   const formik = useFormik({
@@ -28,7 +24,6 @@ const Signin: React.FC<SigninProps> = ({ onLogin }) => {
 
         if (data.token) {
           const roles = data.roleList.map((r) => r.authority);
-          onLogin();
           if (!roles.includes("ADMIN")) {
             Swal.fire({
               icon: "error",
@@ -39,7 +34,6 @@ const Signin: React.FC<SigninProps> = ({ onLogin }) => {
           }
 
           Cookies.set("token", data.token);
-
 
           Swal.fire({
             icon: "success",
