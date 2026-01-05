@@ -1,0 +1,15 @@
+.admin{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    gap: 1rem;
+    overflow: hidden;
+    .nav-bar{
+        width: 17%;
+        height: 100vh;
+    }
+    .main{
+        width: 83%;
+        height: 100vh;
+    }
+}

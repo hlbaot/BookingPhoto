@@ -1,0 +1,127 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.head {
+    padding: 2rem 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.6);
+    .logo{
+        font-family: 'Dancing Script', cursive;
+    }
+    .nav_bar {
+        .nav_list {
+            padding: 5px 18px;
+            border-radius: 8px;
+            margin: 0;
+            list-style: none;
+
+            li {
+                position: relative;
+                font-size: 24px;
+                font-family: 'Dancing Script', cursive;
+                transition: color 0.3s ease;
+                color: white;
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    left: 50%;
+                    bottom: -5px;
+                    width: 0;
+                    height: 2px;
+                    background-color: rgb(255, 255, 255);
+                    transition: all 0.3s ease;
+                    transform: translateX(-50%);
+                }
+
+                &:hover {
+                    color: #ff4800;
+                    cursor: pointer;
+                }
+
+                &:hover::after {
+                    width: 100%;
+                }
+            }
+        }
+
+        @media (min-width: 768px) {
+            .nav_list {
+                display: flex;
+                gap: 3rem;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .nav_list {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: rgba(0, 0, 0, 0.9);
+                padding: 1rem 0;
+
+                &.mobile-open {
+                    display: block;
+                }
+
+                li {
+                    padding: 1rem;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .btn {
+        font-size: 17px;
+        background: transparent;
+        border: none;
+        color: white;
+        padding: 3px 5px;
+        position: relative;
+        transition: 0.5s ease;
+        cursor: pointer;
+
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 2px;
+            width: 0;
+            background-color: #ffffff;
+            transition: 0.5s ease;
+        }
+
+        &:hover {
+            color: #000000;
+            transition-delay: 0.2s;
+        }
+
+        &:hover::before {
+            width: 100%;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 0;
+            width: 100%;
+            background-color: #ffffff;
+            transition: 0.2s ease;
+            z-index: -1;
+        }
+
+        &:hover::after {
+            height: 100%;
+            transition-delay: 0.3s;
+        }
+    }
+}

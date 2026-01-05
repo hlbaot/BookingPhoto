@@ -1,0 +1,116 @@
+.service {
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+  background-color: #000;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  gap: 1rem;
+  padding-top: 3.5rem;
+
+  h1{
+    font-family: 'Dancing Script', cursive;
+  }
+
+  .carousel {
+    .carousel-control-prev,
+    .carousel-control-next {
+      position: absolute;
+      background-size: 70%;
+      background-position: center;
+      background-repeat: no-repeat;
+      width: 30px;
+      height: 30px;
+      background-color: rgb(248, 186, 186);
+      border-radius: 50%;
+      opacity: 1;
+      transition: background-color 0.3s ease, opacity 0.3s ease;
+      margin: auto 0;
+      background-color: white;
+      &:hover{
+        background-color: rgb(252, 119, 119);
+      }
+    }
+
+    .carousel-control-prev span,
+    .carousel-control-next span {
+      display: none;
+    }
+
+    .carousel-control-prev {
+      left: 20px;
+      background-image: url("/img/left-arrow.png")
+    }
+
+    .carousel-control-next {
+      right: 20px;
+      background-image: url("/img/right-arrow.png");
+    }
+
+    .carousel-item {
+      .left {
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+          border-radius: 0.5rem;
+        }
+      }
+
+      .right {
+        width: 40%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+
+        p {
+          text-align: center;
+          color: white;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    .carousel-indicators {
+      display: none;
+    }
+
+    .carousel {
+      .carousel-item {
+        .left {
+          width: 100%;
+
+          img {
+            margin-top: 5px;
+            width: 100%;
+            max-width: 60%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 0.5rem;
+          }
+        }
+
+        .right {
+          width: 100%;
+          padding: 0.5rem;
+        }
+      }
+
+      button {
+        margin-top: -2rem;
+      }
+    }
+  }
+
+}

@@ -1,0 +1,89 @@
+.modal-box {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 1000px; 
+  max-height: 90vh;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: white;
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+}
+
+.left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+}
+
+.main-image-container {
+  flex: 0 0 70%;
+  height: 70%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.thumbnail-container {
+  flex: 0 0 30%;
+  height: 30%;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+}
+
+.thumbnail-container::-webkit-scrollbar {
+  display: none;
+}
+
+.thumbnail-container img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: border-color 0.3s, transform 0.3s;
+}
+
+.thumbnail-container img:hover {
+  border-color: #3182ce;
+  transform: scale(1.05);
+}
+
+.right {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+/* Gộp media queries */
+@media (max-width: 768px) {
+  .modal-box {
+    flex-direction: column;
+    width: 95%;
+    max-height: 95vh;
+    overflow-y: auto;
+  }
+
+  .modal-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .right {
+    width: 100%;
+    padding: 1rem;
+  }
+}
