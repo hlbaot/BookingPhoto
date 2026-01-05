@@ -10,6 +10,29 @@ interface Image {
   images: string
 }
 
+const dataSlide = [
+  {
+    "id": 0,
+    "images": "https://i.pinimg.com/736x/7f/b5/c9/7fb5c9b2e42b031c8ef97509df9a3d8d.jpg"
+  },
+  {
+    "id": 1,
+    "images": "https://i.pinimg.com/736x/8f/5b/19/8f5b19b5b350521bf48d9772997897d5.jpg"
+  },
+  {
+    "id": 2,
+    "images": "https://i.pinimg.com/1200x/9f/9a/6e/9f9a6ea35e5540bd6ff6b1369ffc0ad0.jpg"
+  },
+  {
+    "id": 3,
+    "images": "https://i.pinimg.com/1200x/1a/82/c8/1a82c801eb62df9495468fa925424f5b.jpg"
+  },
+  {
+    "id": 4,
+    "images": "https://i.pinimg.com/1200x/01/46/14/014614fba1c3e0069480767a0d8f931d.jpg"
+  }
+];
+
 const Home: React.FC = () => {
   const [dataimg, setDataImg] = useState<Image[]>([]);
 
@@ -21,8 +44,9 @@ const Home: React.FC = () => {
   useEffect(() => {
     const getData = async () => {
       try {
-        const data = await API_Home();
-        setDataImg(data);
+        // const data = await API_Home();
+        //thay api thật
+        setDataImg(dataSlide);
       } catch (err) {
         console.error(err);
       }

@@ -28,7 +28,7 @@ const Signin: React.FC<SigninProps> = ({ onLogin }) => {
 
         if (data.token) {
           const roles = data.roleList.map((r: any) => r.authority);
-
+          onLogin();
           if (!roles.includes("ADMIN")) {
             Swal.fire({
               icon: "error",
