@@ -8,7 +8,6 @@ import Carousel from "react-bootstrap/Carousel";
 import CustomModal from "../component/modal_booking";
 import { API_Service } from "@/api/API_Service";
 import { Package } from "../interfaces/package";
-import Image from 'next/image';
 
 const Service: React.FC = () => {
   const [open, setOpen] = useState(false);
@@ -62,40 +61,33 @@ const Service: React.FC = () => {
               <div className="flex flex-col md:flex-row w-full max-w-7xl mx-auto px-[4rem]">
                 {/* Left */}
                 <div className="left flex flex-col md:flex-row justify-center items-center gap-4 w-full md:w-1/2">
-                  <div className="flex flex-col md:flex-row items-center gap-4">
+                 <div className="flex flex-col md:flex-row items-center gap-4">
                     {item.imageUrls?.length > 1 && (
-                      <Image
+                      <img
                         className="h-[230px] w-[160px] object-cover rounded-lg md:rounded-none hidden md:block"
                         src={item.imageUrls[1]}
                         alt={`Slide ${item.id}-2`}
-                        width={160}
-                        height={230}
-                        data-aos="fade-up"
+                        loading="lazy"
                       />
                     )}
-
+                  
                     {item.imageUrls?.length > 0 && (
-                      <Image
+                      <img
                         className="h-[350px] w-[250px] object-cover rounded-lg md:rounded-none"
                         src={item.imageUrls[0]}
                         alt={`Slide ${item.id}-1`}
-                        width={250}
-                        height={350}
-                        data-aos="fade-down"
+                        loading="lazy"
                       />
                     )}
-
+                  
                     {item.imageUrls?.length > 2 && (
-                      <Image
+                      <img
                         className="h-[230px] w-[160px] object-cover rounded-lg md:rounded-none hidden md:block"
                         src={item.imageUrls[2]}
                         alt={`Slide ${item.id}-3`}
-                        width={160}
-                        height={230}
-                        data-aos="fade-up"
+                        loading="lazy"
                       />
                     )}
-
                   </div>
                 </div>
 
