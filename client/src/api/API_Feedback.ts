@@ -3,7 +3,7 @@ import { FormFeedback } from "@/interfaces/feedBack";
 export async function API_SubmitFeedBack(values: FormFeedback, token: string) {
   try {
     const response = await axios.post(
-      "http://localhost:8080/ratings/create",
+      "https://bookingphoto.onrender.com/ratings/create",
       values,
       {
         headers: { Authorization: `Bearer ${token}` },
