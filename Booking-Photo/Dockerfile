@@ -1,21 +1,22 @@
-# Bước 1: Build ứng dụng
-FROM gradle:7.4-jdk17 AS build
+# Bước 1: Build ứng dụng bằng Gradle và JDK 21
+FROM gradle:8.5-jdk21 AS build
 WORKDIR /app
-# Sao chép toàn bộ mã nguồn vào
+
+# Sao chép mã nguồn
 COPY . .
-# Build và bỏ qua chạy test để nhanh hơn, dùng --no-daemon để tiết kiệm tài nguyên
+
+# Build dự án, bỏ qua test để tiết kiệm RAM trên Render
 RUN gradle build -x test --no-daemon
 
-# Bước 2: Chạy ứng dụng
-FROM eclipse-temurin:17-alpine
+# Bước 2: Chạy ứng dụng với JRE 21 nhẹ hơn
+FROM eclipse-temurin:21-alpine
 WORKDIR /app
 
-# Sử dụng ký tự đại diện (*) để copy file jar mà không sợ sai tên version
-# Thường là /home/gradle/project/build/libs/*.jar nếu dùng image gradle mặc định
+# Copy file jar từ bước build sang (Sử dụng wildcard * để tránh sai tên version)
 COPY --from=build /app/build/libs/*.jar app.jar
 
-# Expose cổng 8080
+# Mở cổng 8080
 EXPOSE 8080
 
-# Cấu hình Java heap size để không bị tràn RAM 512MB của Render
+# Giới hạn RAM cho Java để không vượt quá 512MB của Render
 ENTRYPOINT ["java", "-Xmx300m", "-Xss512k", "-jar", "app.jar"]
