@@ -3,7 +3,7 @@ import { Package } from "../interfaces/package";
 
 export const API_Service = async (): Promise<Package[]> => {
   const res = await axios.get<Package[]>(
-    "http://localhost:8080/packages"
+    "https://bookingphoto.onrender.com/packages"
   );
   return res.data;
 };
