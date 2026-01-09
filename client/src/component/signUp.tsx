@@ -39,9 +39,9 @@ const FormSignUp: React.FC<Props> = ({ switchToSignIn }) => {
         console.error(error);
 
         let message = "Không thể gửi OTP";
-        if (error instanceof Error) {
-          message = error.message;
-        }
+        // if (error instanceof Error) {
+        //   message = error.message;
+        // }
 
         setErrors({ password: message });
       }
@@ -62,11 +62,12 @@ const FormSignUp: React.FC<Props> = ({ switchToSignIn }) => {
     } catch (error: unknown) {
       console.error(error);
 
-      const message =
-        error instanceof Error
-          ? error.message
-          : "Xác minh OTP thất bại, vui lòng thử lại";
+      // const message =
+      //   error instanceof Error
+      //     ? error.message
+      //     : "Xác minh OTP thất bại, vui lòng thử lại";
 
+      const message = "Xác minh OTP thất bại, vui lòng thử lại";
       setMessage(message);
     }
   };
