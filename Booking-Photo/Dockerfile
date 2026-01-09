@@ -1,20 +1,21 @@
-# Sử dụng OpenJDK để build ứng dụng
+# Bước 1: Build ứng dụng
 FROM gradle:7.4-jdk17 AS build
-
-# Sao chép mã nguồn vào container
+WORKDIR /app
+# Sao chép toàn bộ mã nguồn vào
 COPY . .
+# Build và bỏ qua chạy test để nhanh hơn, dùng --no-daemon để tiết kiệm tài nguyên
+RUN gradle build -x test --no-daemon
 
-# Build ứng dụng
-RUN gradle build
-
-# Dùng image JDK để chạy ứng dụng
+# Bước 2: Chạy ứng dụng
 FROM eclipse-temurin:17-alpine
+WORKDIR /app
 
-# Sao chép tệp JAR đã build vào container
-COPY --from=build /build/libs/bookingphoto.jar /app/bookingphoto.jar
+# Sử dụng ký tự đại diện (*) để copy file jar mà không sợ sai tên version
+# Thường là /home/gradle/project/build/libs/*.jar nếu dùng image gradle mặc định
+COPY --from=build /app/build/libs/*.jar app.jar
 
-# Expose cổng
+# Expose cổng 8080
 EXPOSE 8080
 
-# Lệnh để chạy ứng dụng
-ENTRYPOINT ["java", "-jar", "/app/bookingphoto.jar"]
+# Cấu hình Java heap size để không bị tràn RAM 512MB của Render
+ENTRYPOINT ["java", "-Xmx300m", "-Xss512k", "-jar", "app.jar"]
