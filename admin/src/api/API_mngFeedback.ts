@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const API_BASE_URL = "http://localhost:8080";
+const API_BASE_URL = "https://bookingphoto.onrender.com";
 
 // Lấy danh sách feedback
 export async function API_GetFeedbacks(token: string): Promise<Feedback[]> {
