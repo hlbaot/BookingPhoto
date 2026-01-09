@@ -103,7 +103,7 @@ const FormSignUp: React.FC<Props> = ({ switchToSignIn }) => {
               {...formik.getFieldProps('password')}
             />
           </div>
-          /* {formik.errors.password && <p className="error text-red-400">{formik.errors.password}</p>} */
+          {/* /* {formik.errors.password && <p className="error text-red-400">{formik.errors.password}</p>} */}
 
           {/* Confirm Password */}
           <div className="field">
