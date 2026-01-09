@@ -8,7 +8,7 @@ export async function API_SubmitBooking(
 ) {
   try {
     const response = await axios.post<FormBooking>(
-      `http://localhost:8080/formBookings/create?packageId=${packageId}`,
+      `https://bookingphoto.onrender.com/formBookings/create?packageId=${packageId}`,
       payload,
       { headers: { Authorization: `Bearer ${token}` } }
     );
