@@ -118,7 +118,7 @@ const FormSignUp: React.FC<Props> = ({ switchToSignIn }) => {
             />
           </div>
           /* {formik.errors.confirmPassword && <p className="error text-red-400">{formik.errors.confirmPassword}</p>} */
-          {formik.errors.password && <p className="error text-red-400">{formik.errors.password}</p>}
+          <p className="error text-red-400">{formik.errors.password}</p>
           
           {/* Submit */}
           {!showOtpInput && (
