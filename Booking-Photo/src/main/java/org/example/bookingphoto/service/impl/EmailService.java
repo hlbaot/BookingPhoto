@@ -29,7 +29,7 @@ public class EmailService {
         message.setTo(to);  // Địa chỉ email người nhận
         message.setSubject(subject);
         message.setText(text);
-        message.setFrom("ahmobile17022005@gmail.com");  // Địa chỉ email gửi
+        message.setFrom("baotoanit1505@gmail.com");  // Địa chỉ email gửi
 
         // Gửi email
         javaMailSender.send(message);
